@@ -1,0 +1,4 @@
+void xoa(NganXep *S) {
+if (!ktRong(*S))
+S->Dinh=S->Dinh+1;
+}

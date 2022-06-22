@@ -1,0 +1,4 @@
+void them(int X, NganXep *S) {
+	S->Dinh=S->Dinh-1;
+    S->Dinh[S->DuLieu]=X;
+}

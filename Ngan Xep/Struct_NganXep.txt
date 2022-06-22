@@ -1,0 +1,7 @@
+#define MaxLength 100
+typedef int ElementType;
+typedef struct {
+ElementType DuLieu[MaxLength];
+int Dinh;
+} NganXep;
+

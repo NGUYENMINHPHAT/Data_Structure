@@ -1,0 +1,61 @@
+#include <stdio.h>
+#define MaxSize 100
+typedef struct{
+     int Data[MaxSize];
+     int Front, Rear;
+}Queue;
+void makenullQueue(Queue *pQ){
+  pQ->Front=pQ->Rear=0;   
+}
+int emptyQueue(Queue Q){
+    return Q.Front==Q.Rear;
+}
+void enQueue(int X, Queue *pQ){
+    pQ->Data[pQ->Rear]=X;
+    pQ->Rear=(pQ->Rear + 1)%MaxSize;
+}
+void deQueue(Queue *pQ){
+    if(pQ->Front == pQ->Rear){
+        makenullQueue(pQ);
+    }
+    else{
+        pQ->Front = (pQ->Front + 1)%MaxSize;
+    }
+}
+int Count(Queue Q){
+    int count=0;
+    while(!emptyQueue(Q)){
+        count++;
+        deQueue(&Q);
+    }
+    return count;
+}
+int main(){
+    Queue Q;
+    makenullQueue(&Q);
+    int N, x;
+    char a;
+    scanf("%d",&N);
+    int i=1;
+    while(i<=N){
+        scanf("%c %d", &a, &x);
+        if(a=='E'){
+            enQueue(x,&Q);
+            printf("%d\n",Count(Q));
+            i++;
+        }
+        else if(a=='D'){
+            if(!emptyQueue(Q)){
+                printf("%d ", Q.Data[Q.Front]);
+                deQueue(&Q);
+                printf("%d\n",Count(Q));
+                i++;
+            }
+            else if(emptyQueue(Q)){
+                deQueue(&Q);
+                printf("-1 %d\n",Count(Q));
+                i++;
+            }
+        }
+    }
+}
