@@ -1,0 +1,14 @@
+void insertList(ElementType X,Position P, List *L)
+ {	Position T;
+        // Buoc 1
+		T=(struct Node*)malloc(sizeof(struct Node));
+
+		// Buoc 2
+		T->Element=X;
+
+		// Buoc 3
+		T->Next=P->Next;
+
+		// Buoc 4
+		P->Next=T;
+	}

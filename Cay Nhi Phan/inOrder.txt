@@ -1,0 +1,21 @@
+Tree LeftChild(Tree n)	{
+	if (n!=NULL) 
+		return n->Left;
+	else 
+		return NULL; 
+} 
+
+Tree RightChild(Tree n)	{
+	if (n!=NULL) 
+		return n->Right;
+ 	else 
+		return NULL;
+}
+
+void inOrder(Tree T) {
+	if(T != NULL) {
+		inOrder(LeftChild(T));
+		printf("%d ",T->Key);
+		inOrder(RightChild(T));
+	}	
+}

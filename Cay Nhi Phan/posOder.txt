@@ -1,0 +1,21 @@
+Tree LeftChild(Tree n)	{
+	if (n!=NULL) 
+		return n->Left;
+	else 
+		return NULL; 
+} 
+
+Tree RightChild(Tree n)	{
+	if (n!=NULL) 
+		return n->Right;
+ 	else 
+		return NULL;
+}
+
+void posOrder(Tree T) {
+	if(T != NULL) {
+		posOrder(LeftChild(T));
+		posOrder(RightChild(T));
+		printf("%d ",T->Key);
+	}	
+}

@@ -1,0 +1,16 @@
+Tree getParent(int x, Tree T){
+    Tree parent = NULL;
+    while(T!=NULL){
+        if(x == T->Key) 
+        return parent;
+        else if(x < T->Key){
+            parent=T;
+            T=T->Left;
+        }
+        else{
+            parent=T;
+            T=T->Right;
+        }
+    }
+    return T;
+}

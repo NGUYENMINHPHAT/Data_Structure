@@ -1,0 +1,10 @@
+void deleteList(Position P, List *L)
+{ Position Temp;
+	 if (P->Next!=NULL)
+   {  Temp=P->Next;
+
+		P->Next=Temp->Next;
+
+		free(Temp);
+	  }
+}

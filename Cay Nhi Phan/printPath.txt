@@ -1,0 +1,17 @@
+void printPath(int x, Tree t){
+    if(t==NULL)
+        printf("-> Khong thay");
+        else if (t->Key==x){
+            printf("%d ",x);
+            printf("-> Tim thay");
+        }
+        
+else if(t->Key<x){
+    printf("%d ", t->Key);
+    printPath(x, t->Right);
+}
+else{
+    printf("%d ", t->Key);
+    printPath(x, t->Left);
+}
+}

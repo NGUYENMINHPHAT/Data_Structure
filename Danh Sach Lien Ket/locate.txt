@@ -1,0 +1,9 @@
+Position locate(ElementType X, List L)
+{	Position P;
+	int Found = 0;
+	P = L;
+	while ((P->Next != NULL) && (Found == 0))
+		if (P->Next->Element == X) Found = 1;
+		else P = P->Next;
+	return P;
+}

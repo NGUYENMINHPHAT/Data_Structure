@@ -1,0 +1,40 @@
+Tree LeftChild(Tree T)
+{
+    if(T != NULL)
+        return T->Left;
+    else return NULL;
+}
+/*=== Xác định con phải của nút ===*/
+Tree RightChild(Tree T)
+{
+    if(T != NULL)
+    return T->Right;
+    else return NULL;
+}
+
+Tree Search (int K, Tree T){
+    if(T!=NULL) //Kiem tra cay rong
+        if(K == T->Key) //tim thay khoa
+             return T;
+    else
+        if(K<T->Key) // Hy vong K nam ben trai
+            return Search(K,LeftChild(T));
+        else // Hy vong K nam ben phai
+            return Search(K,RightChild(T));
+    else return NULL;
+}
+
+int Max(int a, int b){
+    return (a>b)?a:b;
+}
+
+int getHeight(Tree T){
+    if(T==NULL) return -1;
+    else return 1 + Max(getHeight(T->Left), getHeight(T->Right));
+}
+
+int hNode(int x, Tree T){
+ Tree pT=Search(x, T);
+ if(pT==NULL) return -1;
+ else return getHeight(pT);
+}

@@ -1,0 +1,13 @@
+typedef struct Node* NodeType; 
+void insertNode(int x, Tree *pT) {
+	if (*pT == NULL) {	
+		(*pT)=(NodeType)malloc(sizeof(struct Node));
+		(*pT)->Key = x;
+		(*pT)->Left = NULL;
+		(*pT)->Right = NULL;
+	}
+ 	else if (x < (*pT)->Key) 
+ 	insertNode(x, &((*pT)->Left));
+ 	else if (x > (*pT)->Key) 
+ 	insertNode(x, &((*pT)->Right));
+} 
